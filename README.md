@@ -4,9 +4,9 @@
 ## 📌 Overview  
 This project implements a numerical solver for **Laplace’s equation** in two dimensions:
 
-\[
+$$
 \nabla^2 \phi(x, y) = 0
-\]
+$$
 
 The solver uses a **finite-difference discretisation** on a rectangular grid and iteratively relaxes the potential until convergence is achieved.  
 This type of simulation is widely used in:
@@ -39,9 +39,17 @@ This project was created as part of my applied mathematics work to deepen my und
 ### 🧩 Discretisation  
 The 2D Laplace equation is approximated using the standard 5-point stencil:
 
-\[
-\phi_{i,j}^{(new)} = \frac{1}{4}\left(\phi_{i+1,j} + \phi_{i-1,j} + \phi_{i,j+1} + \phi_{i,j-1}\right)
-\]
+$$
+\phi_{i,j}^{\text{new}} =
+\frac{1}{4}
+\left(
+\phi_{i+1,j} +
+\phi_{i-1,j} +
+\phi_{i,j+1} +
+\phi_{i,j-1}
+\right)
+$$
+
 
 Grid spacing is assumed uniform (Δx = Δy).  
 This converts the continuous PDE into a system of linear equations solved iteratively.
@@ -78,13 +86,16 @@ python laplace_solver.py
 
 ## Project Structure
 
-/
-├── laplace_solver.py       # Main simulation script
-├── utils.py                # Numerical helpers (optional)
-├── plots/                  # Output visualisations
-├── README.md
-└── requirements.txt
-
+```
+Solving-Laplace-s-Equation-for-a-Potential/
+├── laplace_solver.py # Main simulation script
+├── utils.py # Optional helper functions
+├── plots/ # Output visualisations
+│ ├── potential.png
+│ └── contours.png
+├── requirements.txt
+└── README.md
+```
 
 ## 🚧 Future Extensions
 
@@ -93,9 +104,10 @@ There are several natural directions for extending this solver. These improvemen
 ### 🔹 1. Solve Poisson’s Equation
 Extend the solver to handle the more general equation:
 
-\[
+$$
 \nabla^2 \phi = \rho(x, y)
-\]
+$$
+
 
 Useful for modelling charge distributions, gravitational potentials, and fluid pressure fields.
 
@@ -109,9 +121,13 @@ Allow variable spacing in the x and y directions:
 ### 🔹 3. Add SOR (Successive Over-Relaxation)
 Enhance convergence speed by modifying the update rule:
 
-\[
-\phi^{(new)} = (1 - \omega)\phi^{(old)} + \omega \phi_{\text{relaxed}}
-\]
+$$
+\phi^{\text{new}} =
+(1 - \omega)\,\phi^{\text{old}}
+\;+\;
+\omega\,\phi_{\text{relaxed}}
+$$
+
 
 Choosing \( 1 < \omega < 2 \) significantly accelerates relaxation.
 
@@ -127,9 +143,10 @@ This allows simulation of more realistic physical situations.
 ### 🔹 5. Compute and Visualise the Electric Field
 Once the potential is solved, compute:
 
-\[
+$$
 \mathbf{E} = -\nabla \phi
-\]
+$$
+
 
 and plot:
 
@@ -149,9 +166,10 @@ This enables very large grids or real-time updates.
 ### 🔹 7. Extend to 3D Laplace Solver
 Generalise to:
 
-\[
+$$
 \nabla^2 \phi(x, y, z) = 0
-\]
+$$
+
 
 using a 7-point stencil and volumetric visualisation.
 
