@@ -84,19 +84,6 @@ cd Solving-Laplace-s-Equation-for-a-Potential
 python laplace_solver.py
 ```
 
-## Project Structure
-
-```
-Solving-Laplace-s-Equation-for-a-Potential/
-├── laplace_solver.py # Main simulation script
-├── utils.py # Optional helper functions
-├── plots/ # Output visualisations
-│ ├── potential.png
-│ └── contours.png
-├── requirements.txt
-└── README.md
-```
-
 ## 🚧 Future Extensions
 
 There are several natural directions for extending this solver. These improvements increase realism, numerical stability, and computational performance.
